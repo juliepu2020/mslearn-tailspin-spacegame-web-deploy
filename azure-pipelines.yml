@@ -16,13 +16,13 @@ steps:
   inputs:
     targetType: inline
     script:
-      $connectTestResult = Test-NetConnection -ComputerName azcicdstorage2021.file.core.windows.net -Port 445
-        if ($connectTestResult.TcpTestSucceeded) {
-        # Save the password so the drive will persist on reboot
-        cmd.exe /C "cmdkey /add:`"azcicdstorage2021.file.core.windows.net`" /user:`"Azure\azcicdstorage2021`" /pass:`"4IdW9qnYe5amzFCLZfOf5P0olXfJC6hAiM3p4TqkAjaL9DwsWYzaE7VeG1VXaBfOzb2P0Zxe5fXGCmnauxWt5g==`""
-  New-PSDrive -Name Z -PSProvider FileSystem -Root "\\azcicdstorage2021.file.core.windows.net\workingfolder" -Persist
-           } 
-           else {
-        Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
-        } 
-        get-content Z:\1.txt
+    $connectTestResult = Test-NetConnection -ComputerName azcicdstorage2021.file.core.windows.net -Port 445
+    if ($connectTestResult.TcpTestSucceeded) {
+    # Save the password so the drive will persist on reboot
+    cmd.exe /C "cmdkey /add:`"azcicdstorage2021.file.core.windows.net`" /user:`"Azure\azcicdstorage2021`" /pass:`"4IdW9qnYe5amzFCLZfOf5P0olXfJC6hAiM3p4TqkAjaL9DwsWYzaE7VeG1VXaBfOzb2P0Zxe5fXGCmnauxWt5g==`""
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\azcicdstorage2021.file.core.windows.net\workingfolder" -Persist
+    } 
+    else {
+    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+    } 
+    get-content Z:\1.txt

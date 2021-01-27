@@ -32,10 +32,12 @@ steps:
       .\InstallShield2020R3StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
       
       #copy IDK
-      copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination .
-      copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination .
+      New-Item -ItemType directory -Path C:\Tools
+      
+      copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination C:\Tools
+      copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools
       dir
-      start-process ".\AspenTech IDK.msi" /qn
+      start-process "C:\Tools\AspenTech IDK.msi" /qn
       cd "C:\Program Files (x86)\AspenTech"
       dir
       copy-item ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"

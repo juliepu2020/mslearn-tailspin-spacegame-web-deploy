@@ -33,3 +33,12 @@ steps:
         else {
         Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
         } 
+      get-content Z:\1.txt
+      copy-item Z:\BuildTools\InstallShield2020R3StandaloneBuild.exe -Destination .
+      .\InstallShield2020R3StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
+      
+      start-sleep -s 40
+      ipconfig /all
+      cd "C:\Program Files (x86)\InstallShield\2020 SAB\System"
+      dir
+

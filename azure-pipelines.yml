@@ -13,13 +13,7 @@ container: mcr.microsoft.com/windows/servercore:ltsc2019
 steps:
 - script: set
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      Write-Host "Hello World"
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -37,8 +31,13 @@ steps:
       copy-item Z:\BuildTools\InstallShield2020R3StandaloneBuild.exe -Destination .
       .\InstallShield2020R3StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
       
+      #copy IDK
+      copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination .
+      copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination .
+      .\"AspenTech IDK.msi" /qn
+      copy-item ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
       start-sleep -s 40
-      ipconfig /all
-      cd "C:\Program Files (x86)\InstallShield\2020 SAB\System"
+      #ipconfig /all
+      cd "C:\Program Files (x86)\AspenTech\IDK"
       dir
 

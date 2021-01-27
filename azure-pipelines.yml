@@ -34,7 +34,7 @@ steps:
       #copy IDK
       copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination .
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination .
-      .\"AspenTech IDK.msi" /qn
+      start-process .\"AspenTech IDK.msi" /qn
       copy-item ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
       start-sleep -s 40
       #ipconfig /all

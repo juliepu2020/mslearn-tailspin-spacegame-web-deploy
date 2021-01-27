@@ -26,7 +26,7 @@ steps:
     script:
       $connectTestResult = Test-NetConnection -ComputerName azcicdstorage2021.file.core.windows.net -Port 445
       if ($connectTestResult.TcpTestSucceeded) {
-        # Save the password so the drive will persist on reboot
+      
         cmd.exe /C "cmdkey /add:`"azcicdstorage2021.file.core.windows.net`" /user:`"Azure\azcicdstorage2021`" /pass:`"4IdW9qnYe5amzFCLZfOf5P0olXfJC6hAiM3p4TqkAjaL9DwsWYzaE7VeG1VXaBfOzb2P0Zxe5fXGCmnauxWt5g==`""
         New-PSDrive -Name Z -PSProvider FileSystem -Root "\\azcicdstorage2021.file.core.windows.net\workingfolder" -Persist
         } 

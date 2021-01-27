@@ -36,7 +36,7 @@ steps:
       
       copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination C:\Tools
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools
-      dir
+      dir C:\Tools
       start-process "C:\Tools\AspenTech IDK.msi" /qn
       cd "C:\Program Files (x86)\AspenTech"
       dir

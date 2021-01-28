@@ -44,6 +44,5 @@ steps:
       copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
       start-sleep -s 40
       #ipconfig /all
-      cd "C:\Program Files (x86)\AspenTech\IDK"
-      dir
+      
 

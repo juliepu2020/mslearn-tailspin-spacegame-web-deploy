@@ -39,9 +39,9 @@ steps:
       dir C:\Tools      
       start-process msiexec.exe -Wait -ArgumentList '/I "C:\Tools\AspenTech IDK.msi" /qn'
       start-sleep -s 40
-      cd "C:\Program Files (x86)\AspenTech"
+      cd "C:\Program Files (x86)\AspenTech\IDK"
       dir
-      copy-item ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
+      copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
       start-sleep -s 40
       #ipconfig /all
       cd "C:\Program Files (x86)\AspenTech\IDK"

@@ -47,5 +47,5 @@ steps:
       #Build Suite
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "Z:\Release\Suite\Current" 
       cd Z:\Release\Suite\Current
-      "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" aspenONEEngineeringV12.1_x64.mic
+      start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" aspenONEEngineeringV12.1_x64.mic
 

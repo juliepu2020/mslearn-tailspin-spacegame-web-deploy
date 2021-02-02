@@ -45,7 +45,9 @@ steps:
       start-sleep -s 40
       #ipconfig /all
       #Build Suite
-      copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "Z:\Release\Suite\Current" 
-      cd Z:\Release\Suite\Current
+      copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
+    
       start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" aspenONEEngineeringV12.1_x64.mic
+      dir
+      copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
 

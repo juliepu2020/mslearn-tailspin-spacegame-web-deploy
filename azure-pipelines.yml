@@ -36,7 +36,8 @@ steps:
       
       copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination C:\Tools
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools
-      dir C:\Tools      
+      dir C:\Tools
+      #start-process msiexec.exe -Wait -ArgumentList '/I "C:\Tools\AspenTech IDK.msi" /qn'   
       msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn
       start-sleep -s 40
       cd "C:\Program Files (x86)\AspenTech\IDK"

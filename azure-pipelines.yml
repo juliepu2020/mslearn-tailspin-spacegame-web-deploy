@@ -62,7 +62,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
+      call "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
       cd C:\Tools
       dir
       echo Hello world

@@ -49,7 +49,7 @@ steps:
       cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
     
-      start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" aspenONEEngineeringV12.1_x64.mic
+      start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList 'aspenONEEngineeringV12.1_x64.mic'
       $TempDir = [System.IO.Path]::GetTempPath()
       cd $TempDir
       get-content buildsuite*.log

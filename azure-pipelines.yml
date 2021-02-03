@@ -52,7 +52,8 @@ steps:
       start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList 'aspenONEEngineeringV12.1_x64.mic'
       $TempDir = [System.IO.Path]::GetTempPath()
       cd $TempDir
-      get-content buildsuite*.log
       dir
+      get-content buildsuite*.log
+     
       copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
 

@@ -60,11 +60,18 @@ steps:
       #copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
 
 
+- task: BatchScript@1
+  inputs:
+    filename: 'C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe'
+    arguments: 'C:\Tools\aspenONEEngineeringV12.1_x64.mic'
+    modifyEnvironment: false
+
 - task: CmdLine@2
   inputs:
     script: |
-      call "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
       cd C:\Tools
       dir
       echo Hello world
+
+
 

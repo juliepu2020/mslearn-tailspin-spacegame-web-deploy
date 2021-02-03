@@ -49,12 +49,21 @@ steps:
       cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
     
-      start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList aspenONEEngineeringV12.1_x64.mic
-      Get-Process -Name BuildSuite.exe
-      $TempDir = [System.IO.Path]::GetTempPath()
-      cd $TempDir
-      dir
-      get-content buildsuite*.log
+      #start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList aspenONEEngineeringV12.1_x64.mic
+      #Get-Process -Name BuildSuite.exe
+      #$TempDir = [System.IO.Path]::GetTempPath()
+      #cd $TempDir
+      #dir
+      #get-content buildsuite*.log
      
-      copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
+      #copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
+
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
+      cd C:\Tools
+      dir
+      echo Hello world
 

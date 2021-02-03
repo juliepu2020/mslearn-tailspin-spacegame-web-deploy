@@ -50,6 +50,9 @@ steps:
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
     
       start-process "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" aspenONEEngineeringV12.1_x64.mic
+      $TempDir = [System.IO.Path]::GetTempPath()
+      cd $TempDir
+      get-content buildsuite*.log
       dir
       copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
 

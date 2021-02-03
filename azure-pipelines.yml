@@ -48,7 +48,8 @@ steps:
       #Build Suite
       cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
-    
+      copy-item -path "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)" -Destination "C:\Tools\Aspen Operator Training V12.1 (64bit)"
+      dir
       #start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList aspenONEEngineeringV12.1_x64.mic
       #Get-Process -Name BuildSuite.exe
       #$TempDir = [System.IO.Path]::GetTempPath()

@@ -52,7 +52,7 @@ steps:
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
       start-sleep -s 100
       #Copy the suite to Azure fileshare
-      Get-ChildItem C:\Tools\aspenONEEngineeringV12.1_x64
+      Get-ChildItem C:\Tools
       copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"
       copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64\*" -Destination "Z:\Release\Suite\Current\aspenONEEngineeringV12.1_x64" -Recurse
 

@@ -40,6 +40,7 @@ steps:
       #start-process msiexec.exe -Wait -ArgumentList '/I "C:\Tools\AspenTech IDK.msi" /qn'   
       msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn
       start-sleep -s 40
+    
       cd "C:\Program Files (x86)\AspenTech\IDK"
       dir
       copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
@@ -49,7 +50,8 @@ steps:
       cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
       copy-item -path "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)" -Destination "C:\Tools\Aspen Operator Training V12.1 (64bit)"
-      cd C:\Tools\Aspen Operator Training V12.1 (64bit)
+      dir
+      cd "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       dir
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
       cd C:\

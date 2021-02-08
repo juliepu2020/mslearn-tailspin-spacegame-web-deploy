@@ -50,6 +50,7 @@ steps:
       cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
       copy-item -path "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)" -Destination "C:\Tools\Aspen Operator Training V12.1 (64bit)"
+      Get-ChildItem "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)"
       dir
       cd "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       dir

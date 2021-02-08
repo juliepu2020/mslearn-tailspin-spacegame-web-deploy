@@ -54,13 +54,7 @@ steps:
       cd "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       dir
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
-      cd C:\
-      dir
-      #Get-Process -Name BuildSuite.exe
-      $TempDir = [System.IO.Path]::GetTempPath()
-      cd $TempDir
-      dir
-      get-content buildsuite*.log
+      
      
       #copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
 

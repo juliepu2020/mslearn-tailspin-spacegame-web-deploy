@@ -54,14 +54,14 @@ steps:
       start-sleep -s 100
       
       $TempDir = [System.IO.Path]::GetTempPath()
-      cd $TempDir
-      get-childitem $TempDir -recurse
+      #cd $TempDir
+      get-childitem C:\ -recurse
      
       
       #Copy the suite to Azure fileshare
-      Get-ChildItem C:\Tools
-      copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"
-      copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64\*" -Destination "Z:\Release\Suite\Current\aspenONEEngineeringV12.1_x64" -Recurse
+      #Get-ChildItem C:\Tools
+      #copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"
+      #copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64\*" -Destination "Z:\Release\Suite\Current\aspenONEEngineeringV12.1_x64" -Recurse
 
 
 

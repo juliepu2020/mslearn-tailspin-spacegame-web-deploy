@@ -49,8 +49,15 @@ steps:
       copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
           
       #Build Suite
+      get-childitem "C:\Program Files (x86)\AspenTech\IDK\Bin"
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
       start-sleep -s 100
+      
+      $TempDir = [System.IO.Path]::GetTempPath()
+      cd $TempDir
+      dir
+      get-content buildsuite*.log
+      
       #Copy the suite to Azure fileshare
       Get-ChildItem C:\Tools
       copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"

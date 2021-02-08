@@ -44,13 +44,13 @@ steps:
       #Install IDK
       msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn
       start-sleep -s 40
-      cd "C:\Program Files (x86)\AspenTech\IDK"
-      dir     
+      #cd "C:\Program Files (x86)\AspenTech\IDK"
+      #dir     
       copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
           
       #Build Suite
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
-      
+       start-sleep -s 100
       #Copy the suite to Azure fileshare
       copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"
       copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64\*" -Destination "Z:\Release\Suite\Current\aspenONEEngineeringV12.1_x64" -Recurse

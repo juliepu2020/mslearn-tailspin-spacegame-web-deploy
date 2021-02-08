@@ -40,7 +40,7 @@ steps:
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
       copy-item -path "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)\*" -Destination "C:\Tools\Aspen Operator Training V12.1 (64bit)"
-      Get-ChildItem "C:\Tools\Aspen Operator Training V12.1 (64bit)"
+      #Get-ChildItem "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       #Install IDK
       msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn
       start-sleep -s 40
@@ -49,14 +49,14 @@ steps:
       copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
           
       #Build Suite
-      get-childitem "C:\Program Files (x86)\AspenTech\IDK\Bin"
-      start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
+      #get-childitem "C:\Program Files (x86)\AspenTech\IDK\Bin"
+      start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
       start-sleep -s 100
       
       $TempDir = [System.IO.Path]::GetTempPath()
       cd $TempDir
-      dir
-      get-content buildsuite*.log
+      get-childitem $TempDir -recurse
+     
       
       #Copy the suite to Azure fileshare
       Get-ChildItem C:\Tools

@@ -33,6 +33,7 @@ steps:
       
       #copy IDK
       New-Item -ItemType directory -Path C:\Tools
+      New-Item -ItemType directory -Path "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       
       copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination C:\Tools
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools

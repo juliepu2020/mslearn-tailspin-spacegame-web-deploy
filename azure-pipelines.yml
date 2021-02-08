@@ -52,12 +52,15 @@ steps:
       #get-childitem "C:\Program Files (x86)\AspenTech\IDK\Bin"
       write-output "start to build suite"
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList "C:\Tools\aspenONEEngineeringV12.1_x64.mic" >"C:\Tools\result.txt"
+      write-output "To check if the process BuildSuite.exe is started"
+      get-process build*
       start-sleep -s 100
       write-output "read the contest from C:\tools\result.txt"
       get-content "C:\Tools\result.txt"
+      
       $TempDir = [System.IO.Path]::GetTempPath()
       #cd $TempDir
-      get-childitem C:\ -recurse
+      #get-childitem C:\ -recurse
      
       
       #Copy the suite to Azure fileshare

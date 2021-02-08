@@ -31,41 +31,28 @@ steps:
       copy-item Z:\BuildTools\InstallShield2020R3StandaloneBuild.exe -Destination .
       .\InstallShield2020R3StandaloneBuild.exe /s /v"INSTALLLEVEL=101 SABCONTAINER=1 /qn"
       
-      #copy IDK
+      
       New-Item -ItemType directory -Path C:\Tools
       New-Item -ItemType directory -Path "C:\Tools\Aspen Operator Training V12.1 (64bit)"
       
+      #Copy item from Azure fileshare
       copy-item "Z:\BuildTools\IDK\AspenTech IDK.msi" -Destination C:\Tools
       copy-item "Z:\BuildTools\IDK\new UI fix\ATMaster.msi" -Destination C:\Tools
-      dir C:\Tools
-      #start-process msiexec.exe -Wait -ArgumentList '/I "C:\Tools\AspenTech IDK.msi" /qn'   
-      msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn
-      start-sleep -s 40
-    
-      cd "C:\Program Files (x86)\AspenTech\IDK"
-      dir
-      copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
-      start-sleep -s 40
-      #ipconfig /all
-      #Build Suite
-      cd C:\Tools
       copy-item "Z:\P4\idk_installation\V12.1\Int\AES\SetupFiles\aspenONEEngineeringV12.1_x64.mic" -Destination "C:\Tools" 
       copy-item -path "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)\*" -Destination "C:\Tools\Aspen Operator Training V12.1 (64bit)"
-      Get-ChildItem "Z:\Release\msi\Aspen Operator Training V12.1 (64bit)"
-      dir
-      cd "C:\Tools\Aspen Operator Training V12.1 (64bit)"
-      dir
+     
+      #Install IDK
+      msiexec.exe /I "C:\Tools\AspenTech IDK.msi" /qn     
+      copy-item C:\Tools\ATMaster.msi -Destination "C:\Program Files (x86)\AspenTech\IDK\Templates"
+          
+      #Build Suite
       start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList C:\Tools\aspenONEEngineeringV12.1_x64.mic
       
-     
-      #copy-item -path aspenONEEngineeringV12.1_x64 -Destination "Z:\Release\Suite\Current" -Recurse
+      #Copy the suite to Azure fileshare
+      copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64" -Destination "Z:\Release\Suite\Current\"
+      copy-item -path "C:\Tools\aspenONEEngineeringV12.1_x64\*" -Destination "Z:\Release\Suite\Current\aspenONEEngineeringV12.1_x64" -Recurse
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      cd C:\Tools
-      dir
-      echo Hello world
+
 
 
 

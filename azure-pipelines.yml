@@ -51,13 +51,11 @@ steps:
       #Build Suite
       #get-childitem "C:\Program Files (x86)\AspenTech\IDK\Bin"
       write-output "start to build suite"
-      start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList "C:\Tools\aspenONEEngineeringV12.1_x64.mic" >"C:\Tools\result.txt"
+      start-process -FilePath "C:\Program Files (x86)\AspenTech\IDK\Bin\BuildSuite.exe" -Wait -ArgumentList "C:\Tools\aspenONEEngineeringV12.1_x64.mic"
       write-output "To check if the process BuildSuite.exe is started"
       get-process build*
       start-sleep -s 100
-      write-output "read the content from C:\tools\result.txt"
-      get-content "C:\Tools\result.txt"
-      
+           
       $TempDir = [System.IO.Path]::GetTempPath()
       #cd $TempDir
       #get-childitem C:\ -recurse

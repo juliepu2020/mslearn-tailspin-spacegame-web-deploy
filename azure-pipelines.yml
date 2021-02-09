@@ -55,7 +55,7 @@ steps:
       write-output "To check if the process BuildSuite.exe is started"
       get-process build*
       start-sleep -s 100
-      write-output "read the contest from C:\tools\result.txt"
+      write-output "read the content from C:\tools\result.txt"
       get-content "C:\Tools\result.txt"
       
       $TempDir = [System.IO.Path]::GetTempPath()
